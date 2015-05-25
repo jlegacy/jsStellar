@@ -1,0 +1,32 @@
+<html>
+
+<h1>test</h1>
+<div><button name="dynamicButton" type="button">Add to Dive</button></div>
+<div id="body"></div>
+
+<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+<script type="text/javascript" src="/jsStellar/scripts/handlebars.min.js"></script>
+<!--<script type="text/javascript" src="/jsStellar/scripts/requirejs.min.js"></script> -->
+<script type="text/javascript" src="/jsStellar/scripts/jquery.serialize-object.min.js"></script>
+
+<script type="text/javascript" src="/jsStellar/$Routes.js"></script>
+<script type="text/javascript" src="/jsStellar/$App.js"></script>
+
+<script type="text/javascript" src="/jsStellar/view/testing.js"></script>
+<script type="text/javascript" src="/jsStellar/controller/testing.js"></script>
+<script type="text/javascript" src="/jsStellar/model/testing.js"></script>
+
+<script type="text/javascript" src="/jsStellar/view/testing2.js"></script>
+<script type="text/javascript" src="/jsStellar/controller/testing2.js"></script>
+<script type="text/javascript" src="/jsStellar/model/testing2.js"></script>
+
+<script>
+$( document ).ready(function() {
+	$App.Fire('initTesting');
+});
+</script>
+
+
+</html>
