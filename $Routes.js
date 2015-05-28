@@ -27,6 +27,10 @@
 				controller : 'testing',
 				method : 'setFormData'
 			}
+		],
+		  links: [
+        // - Application
+        {href: '#helpMe', controller: 'testing2', method: 'init2'}
 		]
 	}
 

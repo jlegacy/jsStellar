@@ -1,4 +1,12 @@
 (function () {
+
+	$("body").on("click", "a", function (e) {
+		e.preventDefault();
+		console.log(e.currentTarget.href)
+		console.log(e.toElement.baseURI); 
+		return false;
+	});
+
 	var $App = function () {};
 	var $AppViewFuncs = [];
 	var $AppControllerFuncs = [];
@@ -29,13 +37,14 @@
 
 		var formData = $(values).serializeObject();
 		console.log(formData);
-		
+
 		var requireJSName;
 		var models;
 		var views;
 		var controllers;
 		var funcName,
-		x,y,
+		x,
+		y,
 		controllerName;
 
 		x = _.findWhere($App.Routes.forms, {
@@ -65,8 +74,8 @@
 				return _.has(item, _.keys(def)[0])
 			})
 
-		var fireIt = funcToCall.Functions[x.method];
-		
+			var fireIt = funcToCall.Functions[x.method];
+
 		fireIt(formData, models, views);
 
 	}
