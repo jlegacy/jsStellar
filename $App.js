@@ -2,15 +2,39 @@
 
 	$("body").on("click", "a", function (e) {
 		e.preventDefault();
-		console.log(e.currentTarget.href)
-		console.log(e.toElement.baseURI); 
-		return false;
+
+		//console.log(e.currentTarget.href)
+		//console.log(e.toElement.baseURI);
+		
+		console.log('in click', jQuery.data($(e.target).attr('id')));
+	/*	var splitBase,
+		splitURL,
+		splitParms,
+		action,
+		numberParms;
+
+		splitBase = (e.toElement.baseURI).split("/");
+
+		splitURL = (e.currentTarget.href).split("/");
+
+		action = splitURL[splitBase.length];
+
+		splitParms = (e.currentTarget.href).split(":");
+
+		console.log(action);
+		console.log(splitParms);
+
+		return false; */
 	});
 
 	var $App = function () {};
 	var $AppViewFuncs = [];
 	var $AppControllerFuncs = [];
 	var $AppModelFuncs = [];
+	
+	$App.SetLink = function (el, data) {
+	jQuery.data(el, data );
+	}
 
 	$App.View = function (name, functions) {
 		var functionObject = {};

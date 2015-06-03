@@ -26,6 +26,12 @@
 <script>
 $( document ).ready(function() {
 	$App.Fire('initTesting');
+	
+	//set up click event//
+	var data = {}
+	data.id = 'testId';
+	data.test = 'testingIt';
+	$App.SetLink($('#helpLink'), data);
 });
 </script>
 
