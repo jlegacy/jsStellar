@@ -6,7 +6,9 @@
 		//console.log(e.currentTarget.href)
 		//console.log(e.toElement.baseURI);
 		
-		console.log('in click', jQuery.data($(e.target).attr('id')));
+		var id = '#' + $(e.target).attr('id');
+		console.log($('#helpLink').data('data'));
+	
 	/*	var splitBase,
 		splitURL,
 		splitParms,
@@ -33,7 +35,10 @@
 	var $AppModelFuncs = [];
 	
 	$App.SetLink = function (el, data) {
-	jQuery.data(el, data );
+		
+		$('#helpLink').data('data',data);
+		console.log($('#helpLink').data('data'));
+
 	}
 
 	$App.View = function (name, functions) {
