@@ -30,7 +30,7 @@
 		],
 		  links: [
         // - Application
-        {href: '#helpMe', controller: 'testing2', method: 'init2'}
+        {href: 'helpMe/:id/:test', controller: 'testing2', method: 'init2'}
 		]
 	}
 

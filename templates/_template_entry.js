@@ -9,6 +9,6 @@
 	<form id="testForm1">
 	<input name="input1"></input>
 	<input name="input2"></input>
-	<a id="helpLink" href="helpMe\:id\:test">testing</a>
+	<a id="helpLink" href="helpMe/:id/:test">testing</a> 
 	</form>
 	</div>
