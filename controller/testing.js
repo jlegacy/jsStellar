@@ -3,7 +3,9 @@ $App.Controller('testing', {
 	init2 : function (data, models, views) {
 		var _this = this;
 		console.log(data, 'in Controller testing');
-		models.Functions.init2(data, models, views);
+		models.Functions.init2(data, function (data) {
+			views.Functions.init2(data);
+		});
 
 	},
 	init : function (data) {

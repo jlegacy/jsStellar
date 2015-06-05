@@ -1,15 +1,14 @@
 
 $App.Model('testing',{
     
-    init2:function(data, models, views) {
+    init2:function(data, callback){
             var _this = this;
             console.log(data,'in Model testing');
 			
 			
             var data = {itworks:"backInView"};
 			
-			var func = views.Functions.init;
-			func(data, models, views);
+			callback(data);
            
         },
      init:function(data) {
