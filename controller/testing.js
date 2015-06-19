@@ -1,10 +1,9 @@
-$App.Controller('testing', {
-
-	init2 : function (data, models, views) {
-		var _this = this;
+$App.Controller('testing', { 
+	
+	init2 : function (data) {
 		console.log(data, 'in Controller testing');
-		models.Functions.init2(data, function (data) {
-			views.Functions.init2(data);
+		$App.models.Functions.init2(data, function (data) {
+			$App.views.Functions.init2(data);
 		});
 
 	},
@@ -12,16 +11,16 @@ $App.Controller('testing', {
 		console.log(data, 'in Controller testing');
 	},
 	
-	initTesting : function (data, models, views) {
-		views.Functions.initTesting(data, models, views);
+	initTesting : function (data) {
+		$App.views.Functions.initTesting(data);
 	},
 
-	setFormData: function (data, models, views) {
-		views.Functions.getFormData(data, models, views);
+	setFormData: function (data) {
+		$App.views.Functions.getFormData(data);
 	},
 	
-	dynamicButton : function (data, models, views) {
-		views.Functions.dynamicButton(data, models, views);
+	dynamicButton : function (data) {
+		$App.views.Functions.dynamicButton(data);
 	}
 
 });

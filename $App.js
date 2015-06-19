@@ -1,10 +1,8 @@
 (function () {
 
 	$("body").on("click", "a", function (e) {
-
 		e.preventDefault();
-		bindFunctionsData($App.Routes.links, $(this).data('data'), 'href', $(this).attr('href'));
-
+		$AppBindIt($App.Routes.links, $(this).data('data'), 'href', $(this).attr('href'));
 	});
 
 	var $App = function () {};
@@ -12,14 +10,25 @@
 	var $AppControllerFuncs = [];
 	var $AppModelFuncs = [];
 
-	function bindFunctionsData(routeBranch, data, routeName, pvalue) {
-		var requireJSName;
-		var models;
-		var views;
-		var controllers;
-		var funcName,
-		x,
-		controllerName;
+	var $AppViewLoad = function (data, x) {
+		_.each(data, function (obj) {
+			if (obj.Name === x.controller) {
+				this.$App.views = obj;
+			}
+		});
+	}
+
+	var $AppModelLoad = function (data, x) {
+		_.each(data, function (obj) {
+			if (obj.Name === x.controller) {
+				this.$App.models = obj;
+			}
+		});
+	}
+
+	var $AppBindIt = function (routeBranch, data, routeName, pvalue) {
+
+		var x;
 
 		var myprop = routeName;
 		var value = pvalue;
@@ -28,24 +37,22 @@
 
 		x = _.findWhere(routeBranch, search_obj);
 
-		_.each($AppViewFuncs, function (obj, value) {
-			if (obj.Name === x.controller) {
-				views = obj;
+		if ($App.views) {
+			if ($App.views.Name != x.controller) {
+				$AppViewLoad($AppViewFuncs, x);
+				$AppModelLoad($AppModelFuncs, x);
 			}
-		});
-
-		_.each($AppModelFuncs, function (obj, value) {
-			if (obj.Name === x.controller) {
-				models = obj;
-			}
-		});
+		} else {
+			$AppViewLoad($AppViewFuncs, x);
+			$AppModelLoad($AppModelFuncs, x);
+		}
 
 		var funcToCall = _.findWhere($AppControllerFuncs, {
 				Name : x.controller
 			});
 
 		var fireIt = funcToCall.Functions[x.method];
-		fireIt(data, models, views);
+		fireIt(data);
 	}
 
 	$App.LoadTemplate = function (path) {
@@ -57,9 +64,6 @@
 			success : function (data) {
 				template = Handlebars.compile(data);
 			},
-			error : function (data) {
-				console.log(data);
-			}
 		});
 
 		return template;
@@ -91,23 +95,12 @@
 	}
 
 	$App.Trigger = function (values, action) {
-
 		var formData = $(values).serializeObject();
-
-		var requireJSName;
-		var models;
-		var views;
-		var controllers;
-		var funcName,
-		x,
-		y,
-		controllerName;
-
-		bindFunctionsData($App.Routes.forms, formData, 'action', action);
+		$AppBindIt($App.Routes.forms, formData, 'action', action);
 	}
 
 	$App.Fire = function (method, data) {
-		bindFunctionsData($App.Routes.events, data, 'event', method);
+		$AppBindIt($App.Routes.events, data, 'event', method);
 	}
 
 	$App.Routes = $Routes.Routes;

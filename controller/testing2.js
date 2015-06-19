@@ -1,9 +1,9 @@
 $App.Controller('testing2',{
 
-    init2:function(data, models, views)
+    init2:function(data)
 	{
-            models.Functions.init2(data, function(data) {
-				views.Functions.init2(data); 
+            $App.models.Functions.init2(data, function(data) {
+				$App.views.Functions.init2(data); 
 			});
         },
      init:function(data) {

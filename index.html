@@ -3,13 +3,17 @@
 <h1>test</h1>
 <div><button name="dynamicButton" type="button">Add to Dive</button></div>
 <div id="body"></div>
+<div id="test1">TestLink</div>
+<div id="test2">TestButton</div>
+<div id="test3">TestForm</div>
+<div id="test4">TestEvent</div>
+
 </body>
 
 <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
 <script type="text/javascript" src="/jsStellar/scripts/handlebars.min.js"></script>
-<!--<script type="text/javascript" src="/jsStellar/scripts/requirejs.min.js"></script> -->
 <script type="text/javascript" src="/jsStellar/scripts/jquery.serialize-object.min.js"></script>
 
 <script type="text/javascript" src="/jsStellar/$Routes.js"></script>
@@ -25,7 +29,19 @@
 
 <script>
 $( document ).ready(function() {
-	$App.Fire('initTesting');
+	$App.Fire('initTesting', {
+		test : "this is the bomb"
+	});
+
+	$("button[name='dynamicButton']").click(function () {
+		$App.Trigger($('#testForm1'), 'setFormData');
+	});
+
+	//set up click event//
+	var data = {}
+	data.id = 'testId';
+	data.test = 'testingIt';
+	$App.SetLink($('#helpLink'), data);
 });
 
 </script>
