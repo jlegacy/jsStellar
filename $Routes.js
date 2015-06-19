@@ -9,7 +9,7 @@
 				controller : 'testing',
 				method : 'initTesting'
 			}, {
-				event : 'test3',
+				event : 'test',
 				controller : 'testing2',
 				method : 'init2'
 			},
