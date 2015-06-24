@@ -1,12 +1,30 @@
 <html>
 <body>
-<h1>test</h1>
-<div><button name="dynamicButton" type="button">Add to Dive</button></div>
+
 <div id="body"></div>
-<div id="test1">TestLink</div>
-<div id="test2">TestButton</div>
-<div id="test3">TestForm</div>
-<div id="test4">TestEvent</div>
+<div>
+	<input name="input1">
+	<input name="input2">
+	<a id="testLink" href="testLink/:value1/:value2">Test Link</a>
+</div>
+
+<div  
+<input id="testButton" type="button" value="Test Button">
+</div>
+
+<div> 
+	<form id="testForm" action="testForm">    
+	<input type="text" name="value1"/>
+	<input type="text" name="value2"/>
+	<input id="testFormButton" type="button" value="Test Form"/>
+	</form>
+</div>
+
+<div>
+<input id ="testEventButton" type = "button" value="Test Event">
+</div>
+
+<div id="result">Result</div>
 
 </body>
 
@@ -19,29 +37,42 @@
 <script type="text/javascript" src="/jsStellar/$Routes.js"></script>
 <script type="text/javascript" src="/jsStellar/$App.js"></script>
 
-<script type="text/javascript" src="/jsStellar/view/testing.js"></script>
-<script type="text/javascript" src="/jsStellar/controller/testing.js"></script>
-<script type="text/javascript" src="/jsStellar/model/testing.js"></script>
+<script type="text/javascript" src="/jsStellar/view/index.js"></script>
+<script type="text/javascript" src="/jsStellar/controller/index.js"></script>
+<script type="text/javascript" src="/jsStellar/model/index.js"></script>
 
-<script type="text/javascript" src="/jsStellar/view/testing2.js"></script>
-<script type="text/javascript" src="/jsStellar/controller/testing2.js"></script>
-<script type="text/javascript" src="/jsStellar/model/testing2.js"></script>
 
 <script>
 $( document ).ready(function() {
-	$App.Fire('initTesting', {
-		test : "this is the bomb"
-	});
 
-	$("button[name='dynamicButton']").click(function () {
-		$App.Trigger($('#testForm1'), 'setFormData');
+	//test button
+	$("button[id='testButton']").click(function () {
+		data = {};
+		data.test = 'test button fired';
+		$App.Fire(data);
 	});
-
-	//set up click event//
+	
+	//test Link
 	var data = {}
-	data.id = 'testId';
-	data.test = 'testingIt';
-	$App.SetLink($('#helpLink'), data);
+	data.value1 = $("input[name='input1']").val();
+	data.value2 = $("input[name='input2']").val();
+	$App.SetLink($('#testLink'), data);
+	
+	
+	//test Form
+	$("input[id='testFormButton']").click(function () {
+		var data = $('form#testForm').serializeObject();
+		$App.Trigger(data, $('#testForm').attr('action'));
+	});
+	
+	//test Event
+	$("input[id='testEvent']").click(function () {
+		var data = {};
+		data.value1 = 'testEvent';
+		$App.Fire($('#testEvent'),data);
+	});
+	
+
 });
 
 </script>

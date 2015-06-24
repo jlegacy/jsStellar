@@ -94,8 +94,7 @@
 		$AppModelFuncs.push(functionObject);
 	}
 
-	$App.Trigger = function (values, action) {
-		var formData = $(values).serializeObject();
+	$App.Trigger = function (formData, action) {
 		$AppBindIt($App.Routes.forms, formData, 'action', action);
 	}
 

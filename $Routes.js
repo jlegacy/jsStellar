@@ -5,32 +5,27 @@
 		events : [
 			// - Related Items
 			{
-				event : 'initTesting',
-				controller : 'testing',
-				method : 'initTesting'
-			}, {
-				event : 'test',
-				controller : 'testing2',
-				method : 'init2'
+				event : 'testButton',
+				controller : 'index',
+				method : 'testButton'
 			},
-			
 			{
-				event : 'dynamicButton',
-				controller : 'testing',
-				method : 'dynamicButton'
+				event : 'testEvent',
+				controller : 'index',
+				method : 'testEvent'
 			},
 		],
 		forms : [
 			// - Related Items
 			{
-				action : 'setFormData',
-				controller : 'testing',
-				method : 'setFormData'
+				action : 'testForm',
+				controller : 'index',
+				method : 'testForm'
 			}
 		],
 		  links: [
         // - Application
-        {href: 'helpMe/:id/:test', controller: 'testing2', method: 'init2'}
+        {href: 'testLink/:value1/:value2', controller: 'index', method: 'testLink'}
 		]
 	}
 
