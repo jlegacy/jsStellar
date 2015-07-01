@@ -58,7 +58,6 @@ $( document ).ready(function() {
 	data.value2 = $("input[name='input2']").val();
 	$App.SetLink($('#testLink'), data);
 	
-	
 	//test Form
 	$("input[id='testFormButton']").click(function () {
 		var data = $('form#testForm').serializeObject();
@@ -66,10 +65,10 @@ $( document ).ready(function() {
 	});
 	
 	//test Event
-	$("input[id='testEvent']").click(function () {
+	$("input[id='testEventButton']").click(function () {
 		var data = {};
 		data.value1 = 'testEvent';
-		$App.Fire($('#testEvent'),data);
+		$App.Fire('testEvent',data);
 	});
 	
 

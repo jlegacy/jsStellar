@@ -13,7 +13,7 @@
 				event : 'testEvent',
 				controller : 'index',
 				method : 'testEvent'
-			},
+			}
 		],
 		forms : [
 			// - Related Items

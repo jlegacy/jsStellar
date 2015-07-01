@@ -9,6 +9,10 @@ $App.View('index', {
 			jsonData.value2 = pdata.value2;
 			$('#result').html(template(jsonData));
 		}, 'html')
-	}
-
+	}, 
+	
+	testEvent : function (pdata) {
+			console.log(pdata);
+			$('#result').html('<h1>' + pdata.value1 + '</h1>');
+		}
 });

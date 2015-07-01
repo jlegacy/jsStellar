@@ -5,5 +5,12 @@ $App.Controller('index', {
 			$App.views.Functions.testForm(data);
 		});
 
+	},
+	
+	testEvent : function (data) {
+		$App.models.Functions.testEvent(data, function (data) {
+			$App.views.Functions.testEvent(data);
+		});
+
 	}
 });
