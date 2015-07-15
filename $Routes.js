@@ -4,24 +4,12 @@
 	$Routes.Routes = {
 		events : [
 			// - Related Items
-			{
-				event : 'testButton',
-				controller : 'index',
-				method : 'testButton'
-			},
-			{
-				event : 'testEvent',
-				controller : 'index',
-				method : 'testEvent'
-			}
+			{event : 'testButton',controller : 'index',method : 'testButton'},
+			{event : 'testEvent',controller : 'index',method : 'testEvent'}
 		],
 		forms : [
 			// - Related Items
-			{
-				action : 'testForm',
-				controller : 'index',
-				method : 'testForm'
-			}
+			{action : 'testForm',controller : 'index',method : 'testForm'}
 		],
 		  links: [
         // - Application

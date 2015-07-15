@@ -1,3 +1,4 @@
+(function (){
 $App.View('index', {
 
 	testForm : function (pdata) {
@@ -19,3 +20,31 @@ $App.View('index', {
 		$Utilities.logResults('link working', pdata);
 	}
 });
+
+//test button
+	$("button[id='testButton']").click(function () {
+		data = {};
+		data.test = 'test button fired';
+		$App.Fire(data);
+	});
+	
+	//test Link
+	var data = {}
+	data.value1 = 'test';
+	data.value2 = 'test2';
+	$App.SetLink($('#testLink'), data);
+	
+	//test Form
+	$("input[id='testFormButton']").click(function () {
+		var data = $('form#testForm').serializeObject();
+		$App.Trigger(data, $('#testForm').attr('action'));
+	});
+	
+	//test Event
+	$("input[id='testEventButton']").click(function () {
+		var data = {};
+		data.value1 = 'testEvent';
+		$App.Fire('testEvent',data);
+	});
+
+}());

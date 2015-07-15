@@ -1,3 +1,4 @@
+(function () {
 $App.Model('index',{
     
     testForm:function(data, callback){
@@ -13,3 +14,4 @@ $App.Model('index',{
         }
    
 });
+}());
