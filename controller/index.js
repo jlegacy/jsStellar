@@ -9,6 +9,13 @@ $App.Controller('index', {
 
 	},
 	
+	init : function (data) {
+		$App.models.Functions.init(data, function (data) {
+			$App.views.Functions.init(data);
+		});
+
+	},
+	
 	testLink : function (data) {
 		console.log('calling test link',data);
 		$App.models.Functions.testLink(data, function (data) {

@@ -56,7 +56,8 @@
 		fireIt(data);
 	}
 
-	$App.LoadTemplate = function (path) {
+
+	$App.LoadTemplate = function (path, pdata) {
 		var template = {};
 		$.ajax({
 			url : path,
@@ -64,10 +65,15 @@
 			dataType : "text",
 			success : function (data) {
 				template = Handlebars.compile(data);
-			},
+			}
 		});
 
-		return template;
+		if (pdata) {
+			return template(pdata);
+		} else {
+			return template();
+		}
+
 	}
 
 	$App.SetLink = function (el, data) {

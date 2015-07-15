@@ -1,5 +1,9 @@
 (function () {
 $App.Model('index',{
+	
+	init:function(data, callback){
+			callback(data); 
+        },
     
     testForm:function(data, callback){
 			callback(data); 
