@@ -2,6 +2,8 @@
 
 	$("body").on("click", "a", function (e) {
 		e.preventDefault();
+		console.log($(this).attr('href'));
+		
 		$AppBindIt($App.Routes.links, $(this).data('data'), 'href', $(this).attr('href'));
 	});
 
@@ -27,7 +29,6 @@
 	}
 
 	var $AppBindIt = function (routeBranch, data, routeName, pvalue) {
-
 		var x;
 
 		var myprop = routeName;

@@ -6,6 +6,10 @@ $App.Model('index',{
 		
 	testEvent:function(data, callback){
 			callback(data); 
+        },
+		
+	testLink:function(data, callback){
+			callback(data); 
         }
    
 });

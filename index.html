@@ -3,8 +3,6 @@
 
 <div id="body"></div>
 <div>
-	<input name="input1">
-	<input name="input2">
 	<a id="testLink" href="testLink/:value1/:value2">Test Link</a>
 </div>
 
@@ -24,7 +22,7 @@
 <input id ="testEventButton" type = "button" value="Test Event">
 </div>
 
-<div id="result">Result</div>
+<div id="result"></div>
 
 </body>
 
@@ -41,6 +39,8 @@
 <script type="text/javascript" src="/jsStellar/controller/index.js"></script>
 <script type="text/javascript" src="/jsStellar/model/index.js"></script>
 
+<script type="text/javascript" src="/jsStellar/utilities/utilities.js"></script>
+
 
 <script>
 $( document ).ready(function() {
@@ -54,8 +54,8 @@ $( document ).ready(function() {
 	
 	//test Link
 	var data = {}
-	data.value1 = $("input[name='input1']").val();
-	data.value2 = $("input[name='input2']").val();
+	data.value1 = 'test';
+	data.value2 = 'test2';
 	$App.SetLink($('#testLink'), data);
 	
 	//test Form
