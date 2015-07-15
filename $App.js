@@ -107,5 +107,4 @@
 
 	window.$App = $App
 		return (this);
-}
-	());
+}());
